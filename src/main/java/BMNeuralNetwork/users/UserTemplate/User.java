@@ -10,7 +10,7 @@ public class User {
     // private int socialSecurity;
 
     private String username;
-    private String password; // please remember this is not a secure way to store passwords
+    private String password;
     private String email;
     private boolean isPatient;
 
@@ -38,17 +38,15 @@ public class User {
             throw new UserInputExceptions.BlankFieldException("Username cannot be left blank.");
         }
 
-        // Here we are checking if the password contains at least 6 characters as an example.
-        // Replace this with your actual password validation logic.
+
         if (password == null || password.length() < 6) {
             throw new UserInputExceptions.InvalidPasswordException("Password must contain at least 6 characters.");
         }
 
-        // Here we're just throwing an exception if the email contains "alreadyexists.com" as a placeholder.
-        // Replace this with your actual email uniqueness check logic.
+
         if (email == null || email.isEmpty()) {
             throw new UserInputExceptions.BlankFieldException("Email cannot be left blank.");
-        } else if (email.contains("alreadyexists.com")) {
+        } else if (email.contains("myemail.com")) {
             throw new UserInputExceptions.EmailAlreadyExistsException("This email already exists.");
         }
 
