@@ -1,20 +1,19 @@
 package BMNeuralNetwork;
 
+import BMNeuralNetwork.Users.UserModel.PatientModel;
 import BMNeuralNetwork.exceptions.UserInputExceptions;
-import BMNeuralNetwork.users.UserTemplate.User;
 
 public class Main {
     public static void main(String[] args) {
-        User Chris_S  = null;
+        PatientModel Chris_S  = null;
 
         try {
-            Chris_S = new User(
-                    "",
+            Chris_S = new PatientModel(
+                    "Chris",
                     "Sison",
                     "OofNSquared",
                     "qwerty123456",
-                    "chris.a.sison@gmail.com",
-                    true
+                    "chris.a.sison@gmail.com"
             );
         } catch (UserInputExceptions.EmailAlreadyExistsException e) {
             throw new RuntimeException(e);
@@ -24,6 +23,6 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        System.out.println(Chris_S.getLastName());
+        System.out.println(Chris_S.getFirstName());
     }
 }

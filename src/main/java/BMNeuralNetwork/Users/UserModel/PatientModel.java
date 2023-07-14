@@ -1,8 +1,8 @@
-package BMNeuralNetwork.users.UserTemplate;
+package BMNeuralNetwork.Users.UserModel;
 
 import BMNeuralNetwork.exceptions.UserInputExceptions;
 
-public class User {
+public class PatientModel implements User {
     private int insuranceId;
     private String firstName;
     private String lastName;
@@ -13,17 +13,7 @@ public class User {
     private boolean isPatient;
 
     // Constructor
-    public User(int insuranceId, String firstName, String lastName, String username, String password, String email, boolean isPatient) {
-        this.insuranceId = insuranceId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.isPatient = isPatient;
-    }
-
-    public User(String firstName, String lastName, String username, String password, String email, boolean isPatient) throws UserInputExceptions.EmailAlreadyExistsException, UserInputExceptions.BlankFieldException, UserInputExceptions.InvalidPasswordException {
+    public PatientModel(String firstName, String lastName, String username, String password, String email) throws UserInputExceptions.EmailAlreadyExistsException, UserInputExceptions.BlankFieldException, UserInputExceptions.InvalidPasswordException {
         if (firstName == null || firstName.isEmpty()) throw new UserInputExceptions.BlankFieldException("First name cannot be left blank.");
         if (lastName == null || lastName.isEmpty()) throw new UserInputExceptions.BlankFieldException("Last name cannot be left blank.");
         if (username == null || username.isEmpty()) throw new UserInputExceptions.BlankFieldException("Username cannot be left blank.");
@@ -36,11 +26,9 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.isPatient = isPatient;
     }
 
     // Getters
-    public int getInsuranceId() { return insuranceId; }
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
     public String getUsername() { return username; }
