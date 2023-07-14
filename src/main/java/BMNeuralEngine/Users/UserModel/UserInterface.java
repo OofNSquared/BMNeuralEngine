@@ -1,4 +1,4 @@
-package BMNeuralNetwork.Users.UserModel;
+package BMNeuralEngine.Users.UserModel;
 
 interface User {
     String firstName = null;

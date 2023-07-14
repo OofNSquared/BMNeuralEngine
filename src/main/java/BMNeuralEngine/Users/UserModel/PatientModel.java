@@ -1,6 +1,6 @@
-package BMNeuralNetwork.Users.UserModel;
+package BMNeuralEngine.Users.UserModel;
 
-import BMNeuralNetwork.exceptions.UserInputExceptions;
+import BMNeuralEngine.exceptions.UserInputExceptions;
 
 public class PatientModel implements User {
     private int insuranceId;

@@ -1,4 +1,4 @@
-package BMNeuralNetwork.exceptions;
+package BMNeuralEngine.exceptions;
 
 public class UserInputExceptions {
     public static class BlankFieldException extends Exception {

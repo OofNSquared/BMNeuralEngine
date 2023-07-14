@@ -1,6 +1,4 @@
-package BMNeuralNetwork.Users.UserModel;
-
-import BMNeuralNetwork.exceptions.UserInputExceptions;
+package BMNeuralEngine.Users.UserModel;
 
 public abstract class ProviderModel implements User {
     String firstName;

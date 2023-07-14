@@ -1,7 +1,7 @@
-package BMNeuralNetwork;
+package BMNeuralEngine;
 
-import BMNeuralNetwork.Users.UserModel.PatientModel;
-import BMNeuralNetwork.exceptions.UserInputExceptions;
+import BMNeuralEngine.Users.UserModel.PatientModel;
+import BMNeuralEngine.exceptions.UserInputExceptions;
 
 public class Main {
     public static void main(String[] args) {
