@@ -1,7 +1,5 @@
 package BMNeuralEngine.Users.UserModel;
 
-import BMNeuralEngine.exceptions.UserInputExceptions;
-
 public class PatientModel implements User {
     private int insuranceId;
     private String firstName;
@@ -13,14 +11,16 @@ public class PatientModel implements User {
     private boolean isPatient;
 
     // Constructor
-    public PatientModel(String firstName, String lastName, String username, String password, String email) throws UserInputExceptions.EmailAlreadyExistsException, UserInputExceptions.BlankFieldException, UserInputExceptions.InvalidPasswordException {
-        if (firstName == null || firstName.isEmpty()) throw new UserInputExceptions.BlankFieldException("First name cannot be left blank.");
-        if (lastName == null || lastName.isEmpty()) throw new UserInputExceptions.BlankFieldException("Last name cannot be left blank.");
-        if (username == null || username.isEmpty()) throw new UserInputExceptions.BlankFieldException("Username cannot be left blank.");
-        if (email == null || email.isEmpty()) throw new UserInputExceptions.BlankFieldException("Email cannot be left blank.");
-        if (email.contains("myemail.com")) throw new UserInputExceptions.EmailAlreadyExistsException("This email already exists.");
-        if (password == null || password.length() < 6) throw new UserInputExceptions.InvalidPasswordException("Password must contain at least 6 characters.");
+    public PatientModel(int insuranceId, String firstName, String lastName, String username, String password, String email) {
+        this.insuranceId = insuranceId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 
+    public PatientModel(String firstName, String lastName, String username, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

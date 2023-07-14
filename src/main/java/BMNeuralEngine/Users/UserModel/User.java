@@ -1,6 +1,6 @@
 package BMNeuralEngine.Users.UserModel;
 
-interface User {
+public interface User {
     String firstName = null;
     String lastName = null;
     String username = null;
