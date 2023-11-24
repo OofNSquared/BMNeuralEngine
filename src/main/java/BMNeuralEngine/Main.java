@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         boolean workflowRequest = true;
 
+        // TODO: Pull workflows from a workflow request queue.
         if (workflowRequest) {
             PatientModel patient = new PatientModel(
                     123456789,
@@ -19,10 +20,8 @@ public class Main {
             );
 
             try {
-                NewPatientWorkflow newUser = new NewPatientWorkflow();
-                System.out.println(newUser.initiateWorkflow(patient));
-//                System.out.println(patient.getPatientId());
-                System.out.println(patient.getOptInAIStatus());
+                NewPatientWorkflow newUserWorkflow = new NewPatientWorkflow();
+                newUserWorkflow.initiateWorkflow(patient);
             } catch (UserInputExceptions.BlankFieldException e) {
                 throw new RuntimeException(e);
             } catch (UserInputExceptions.InvalidPasswordException e) {
