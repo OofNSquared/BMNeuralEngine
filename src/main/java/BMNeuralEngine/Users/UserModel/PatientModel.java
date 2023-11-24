@@ -11,8 +11,8 @@ public class PatientModel implements User {
     private String password;
     private String email;
     private boolean isPatient;
-
-    private UUID patientId;
+    private final UUID patientId;
+    private boolean optInAI;
 
     // Constructor
     public PatientModel(int insuranceId, String firstName, String lastName, String username, String password, String email) {
@@ -23,6 +23,7 @@ public class PatientModel implements User {
         this.password = password;
         this.email = email;
         this.patientId = UUID.randomUUID();
+        this.optInAI = false;
     }
 
     public PatientModel(String firstName, String lastName, String username, String password, String email) {
@@ -35,6 +36,7 @@ public class PatientModel implements User {
         this.password = password;
         this.email = email;
         this.patientId = UUID.randomUUID();
+        this.optInAI = false;
     }
 
     // Getters
@@ -46,6 +48,7 @@ public class PatientModel implements User {
     public String getEmail() { return email; }
     public boolean isPatient() { return isPatient; }
     public UUID getPatientId() { return patientId; }
+    public boolean getOptInAIStatus() { return optInAI; }
 
     // Setters
     public void setInsuranceId(int insuranceId) { this.insuranceId = insuranceId; }
@@ -55,5 +58,6 @@ public class PatientModel implements User {
     public void setPassword(String password) { this.password = password; }
     public void setEmail(String email) { this.email = email; }
     public void isPatient(boolean patientStatus) { this.isPatient = patientStatus; }
+    public void setOptInAI(boolean status) { this.optInAI = status; }
 }
 

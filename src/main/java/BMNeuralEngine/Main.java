@@ -19,8 +19,10 @@ public class Main {
             );
 
             try {
-                System.out.println(NewPatientWorkflow.initiateWorkflow(patient));
-                System.out.println(patient.getPatientId());
+                NewPatientWorkflow newUser = new NewPatientWorkflow();
+                System.out.println(newUser.initiateWorkflow(patient));
+//                System.out.println(patient.getPatientId());
+                System.out.println(patient.getOptInAIStatus());
             } catch (UserInputExceptions.BlankFieldException e) {
                 throw new RuntimeException(e);
             } catch (UserInputExceptions.InvalidPasswordException e) {

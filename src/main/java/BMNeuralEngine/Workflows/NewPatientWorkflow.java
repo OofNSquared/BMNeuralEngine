@@ -4,10 +4,14 @@ import BMNeuralEngine.Users.UserModel.PatientModel;
 import BMNeuralEngine.exceptions.UserInputExceptions;
 import BMNeuralEngine.util.PatientWorkflowHelpers;
 
-import java.util.HashMap;
+//import java.util.HashMap;
+import java.util.UUID;
 
 public class NewPatientWorkflow {
-    public static String initiateWorkflow(PatientModel patient) throws UserInputExceptions.EmailAlreadyExistsException, UserInputExceptions.BlankFieldException, UserInputExceptions.InvalidPasswordException {
+    private UUID workflowUUID;
+    public String initiateWorkflow(PatientModel patient) throws UserInputExceptions.EmailAlreadyExistsException, UserInputExceptions.BlankFieldException, UserInputExceptions.InvalidPasswordException {
+        this.workflowUUID = createWorkflowUUID();
+
         if (patient.getFirstName() == null || patient.getFirstName().isEmpty()) throw new UserInputExceptions.BlankFieldException("First name cannot be left blank.");
         if (patient.getLastName() == null || patient.getLastName().isEmpty()) throw new UserInputExceptions.BlankFieldException("Last name cannot be left blank.");
         if (patient.getUsername() == null || patient.getUsername().isEmpty()) throw new UserInputExceptions.BlankFieldException("Username cannot be left blank.");
@@ -18,5 +22,8 @@ public class NewPatientWorkflow {
         return PatientWorkflowHelpers.validateUserInsurance(patient);
     }
 
+    public static UUID createWorkflowUUID() {
+        return UUID.randomUUID();
+    }
 
 }
